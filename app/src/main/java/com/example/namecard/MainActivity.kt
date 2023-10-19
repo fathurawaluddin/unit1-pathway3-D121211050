@@ -32,6 +32,7 @@ import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Icon
+import androidx.compose.ui.tooling.preview.Preview
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -151,4 +152,21 @@ fun Background(backgroundImage: Painter, modifier: Modifier = Modifier) {
                 .fillMaxSize(),
             contentScale = ContentScale.Crop
         )
+}
+
+@Preview
+@Composable
+fun PreviewCard() {
+    NameCardTheme {
+        // A surface container using the 'background' color from the theme
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            val bg_image = painterResource(R.drawable.app_bg)
+            Background(bg_image)
+            Card("Muh. Fathur Rahman Awaluddin", "D121211050")
+            Contacts("+62 811 4344 279", "@frhn.efl", "farhanvanderwaal@gmail.com")
+        }
+    }
 }
